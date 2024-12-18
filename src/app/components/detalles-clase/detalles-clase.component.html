@@ -1,0 +1,22 @@
+<div class="clase-detalles">
+  <mat-card>
+    <mat-card-title>{{ claseSeleccionada.nombre }}</mat-card-title>
+    <mat-card-subtitle>
+      Disponibles: {{ claseSeleccionada.disponibles }}/{{ claseSeleccionada.total }}
+    </mat-card-subtitle>
+
+    <mat-list>
+      <mat-list-item *ngFor="let cliente of claseSeleccionada.clientes">
+        <span mat-line>{{ cliente.nombre }}</span>
+        <span mat-line>{{ cliente.estado }}</span>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-form-field appearance="fill" class="buscar-cliente">
+      <mat-label>Buscar cliente</mat-label>
+      <input matInput placeholder="Escribe un nombre" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Asignar</button>
+  </mat-card>
+</div>

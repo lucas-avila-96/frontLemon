@@ -1,0 +1,11 @@
+mat-icon {
+    margin-right: 8px; /* Espacio entre el ícono y el texto */
+    font-size: 20px; /* Tamaño del ícono */
+    color: #555; /* Color del ícono */
+    vertical-align: middle; /* Centrar el ícono respecto al texto */
+}
+  
+  a.mat-list-item.active-link mat-icon {
+    color: #1976d2; /* Cambiar color del ícono para el elemento activo */
+  }
+  

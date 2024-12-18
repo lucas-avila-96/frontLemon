@@ -1,0 +1,73 @@
+<div class="dashboard">
+  <!-- Barra de Filtros -->
+  <div class="filtros">
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Selecciona una fecha" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Actividad</mat-label>
+      <mat-select>
+        <mat-option value="boxeo">Funcional</mat-option>
+        <mat-option value="spinning">Cross</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Hora</mat-label>
+      <mat-select>
+        <mat-option value="18:00">18:00</mat-option>
+        <mat-option value="19:00">19:00</mat-option>
+        <mat-option value="20:00">20:00</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Buscar</button>
+  </div>
+
+  <mat-list>
+    <mat-list-item *ngFor="let usuario of usuarios" class="usuario-item">
+      <!-- Ícono de perfil del usuario -->
+      <mat-icon matListAvatar color="primary">account_circle</mat-icon>
+  
+      <!-- Contenedor para información del usuario -->
+      <div class="info">
+        <h3 matLine>{{ usuario.nombre }}</h3>
+        <p matLine>{{ usuario.abono }}</p>
+      </div>
+  
+      <!-- Estado y Deuda -->
+      <div class="estado">
+        <mat-icon 
+          *ngIf="usuario.estado === 'activo'" 
+          color="primary">
+          check_circle
+        </mat-icon>
+        <mat-icon 
+          *ngIf="usuario.estado === 'inactivo'" 
+          color="warn">
+          cancel
+        </mat-icon>
+        <span *ngIf="usuario.deuda" class="deuda">
+          ${{ usuario.deuda }}
+        </span>
+      </div>
+  
+      <!-- Botón de Confirmar Asistencia -->
+      <button 
+        mat-raised-button 
+        color="primary" 
+        (click)="confirmarAsistencia(usuario)" 
+        class="btn-asistencia"
+        [disabled]="usuario.asistenciaConfirmada">
+        {{ usuario.asistenciaConfirmada ? 'Confirmada' : 'Confirmar' }}
+      </button>
+    </mat-list-item>
+  </mat-list>
+
+  
+  
+</div>

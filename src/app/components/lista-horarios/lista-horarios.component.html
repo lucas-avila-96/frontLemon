@@ -1,0 +1,8 @@
+<div class="horarios">
+    <div *ngFor="let horario of horarios" class="horario-item">
+      <span>{{ horario.fecha }} - {{ horario.hora }}</span>
+      <span class="clase">{{ horario.clase }}</span>
+      <span class="disponibles">{{ horario.disponibles }}/{{ horario.total }}</span>
+    </div>
+  </div>
+  

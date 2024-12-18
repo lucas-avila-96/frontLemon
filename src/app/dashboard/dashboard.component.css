@@ -1,0 +1,30 @@
+/* Espaciado general */
+.usuario-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 8px 0;
+  }
+  
+  .info {
+    flex: 1; /* Ocupa el espacio disponible */
+    margin-left: 16px;
+  }
+  
+  .estado {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .btn-asistencia {
+    min-width: 120px; /* Ancho mínimo para el botón */
+  }
+  
+  .deuda {
+    font-size: 14px;
+    font-weight: bold;
+    color: #f44336;
+  }
+  

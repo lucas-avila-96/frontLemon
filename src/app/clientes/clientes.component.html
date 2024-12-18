@@ -1,0 +1,74 @@
+<div class="pantalla-usuario">
+  <!-- Barra de búsqueda -->
+  <mat-toolbar color="primary">
+    <mat-form-field appearance="outline">
+      <mat-label>Buscar usuario</mat-label>
+      <input matInput placeholder="Nombre o ID" />
+    </mat-form-field>
+    <button mat-icon-button color="accent">
+      <mat-icon>search</mat-icon>
+    </button>
+    <button mat-icon-button color="accent">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <!-- Resumen del usuario -->
+  <mat-card>
+    <mat-card-content>
+      <h3>{{ nombreUsuario }}</h3>
+      <p><strong>ID:</strong> #216738</p>
+      <p><strong>Teléfono:</strong> 1161933</p>
+      <button mat-raised-button color="primary">Cargar Abono</button>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <h4>Resumen</h4>
+      <p><strong>Clases disponibles:</strong> 26</p>
+      <p><strong>Vencimiento:</strong> 22/08/18</p>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Tabs de navegación -->
+  <mat-tab-group>
+    <mat-tab label="Abonos">
+      <!-- Tabla de abonos -->
+      <div class="tabla-abonos">
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- Columnas -->
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="inicio">
+            <mat-header-cell *matHeaderCellDef> Inicio </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.inicio }} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="vencimiento">
+            <mat-header-cell *matHeaderCellDef> Vencimiento </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.vencimiento }} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="abono">
+            <mat-header-cell *matHeaderCellDef> Abono </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.abono }} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="acciones">
+            <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+              <button mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+            </mat-cell>
+          </ng-container>
+
+          <!-- Header y filas -->
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </mat-tab>
+    <mat-tab label="Turnos">Turnos content...</mat-tab>
+    <mat-tab label="Pagos">Pagos content...</mat-tab>
+    <mat-tab label="Contratos">Contratos content...</mat-tab>
+    <mat-tab label="Datos">Datos content...</mat-tab>
+  </mat-tab-group>
+</div>
